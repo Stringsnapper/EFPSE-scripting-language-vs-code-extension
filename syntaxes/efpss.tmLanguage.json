@@ -60,11 +60,11 @@
     "procedures": {
       "patterns": [
         {
-          "name": "entity.name.function.efpss",
+          "name": "entity.name.function.definition.efpss",
           "match": "(?<=procedure\\s+)\\w+"
         },
         {
-          "name": "entity.name.function.efpss",
+          "name": "entity.name.function.call.efpss",
           "match": "(?<=call\\s+)\\w+"
         }
       ]
@@ -72,11 +72,19 @@
     "variables": {
       "patterns": [
         {
-          "name": "variable.other.efpss",
+          "name": "variable.language.global.efpss",
+          "match": "\\$global\\.[a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*(?:\\[[^\\]]+\\])*(?:[XYZ])?"
+        },
+        {
+          "name": "variable.language.map.efpss",
+          "match": "\\$map\\.[a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*(?:\\[[^\\]]+\\])*(?:[XYZ])?"
+        },
+        {
+          "name": "variable.other.dollar.efpss",
           "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*(?:\\[[^\\]]+\\])*(?:[XYZ])?"
         },
         {
-          "name": "variable.other.efpss",
+          "name": "variable.other.local.efpss",
           "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?!\\s*\\()"
         }
       ]
@@ -84,7 +92,7 @@
     "commands": {
       "patterns": [
         {
-          "name": "keyword.other.command.efpss",
+          "name": "support.function.builtin.efpss",
           "match": "\\b(auto|timeout|pause|halt|keeptrigger|map|next|return|quickreturn|goto|start|player|heal|hurt|teleport|move|rotation|retro|turn|check|speed|zoom|velocity|position|heldweapon|mag|ammo|entity|delete|spawnat|spawnatpos|door|open|close|lock|unlock|light|create|status|offset|flashlight|ambient|sun|give|take|weapon|key|cursor|shader|set|texture|bool|int|float|vec2|vec3|vec4|game|save|load|slot|quick|gravity|hud|image|autoscale|variable|text|font|vn|preload|show|bg|hide|play|stop|music|video|sound|button|label|front|back|bind|unbind|resolution)\\b"
         }
       ]
@@ -92,8 +100,8 @@
     "fsmCommands": {
       "patterns": [
         {
-          "name": "keyword.other.fsm.efpss",
-          "match": "\\b(frame|frameset|state|NONE|READY|SOUND|SOUNDANDATTACK|ATTACK|PLAYERSPEED|PARTICLES|CUSTOMPARTICLE|PLAYERDISTANCE|PLAYERVISIBLE|SETVAR|MODELTEXTURE|SPAWN|HUDIMG|CAMSPEED|CHECKPOS|SETYAW|ADDYAW|ROTMODE|HEAL|HURT|SETHP|EXPLOSION|PROJECTILE|INCREMENT|DECREMENT|MULTIPLY|DIVIDE|MODULO|CLAMP|JUMPIFEQUALS|JUMPIFNEQUALS|JUMPIFGEQUALS|JUMPIFLEQUALS|JUMPIFGREATER|JUMPIFLESS|JUMPIFHPLESS|JUMPIFLESSAMMO|JUMPIFNOAMMO|JUMPIFNOAMMOTOTAL|GIVEAMMO|TAKEAMMO|SETAMMO|RELOAD|MUZZLEFLASH|SETSTAT|ZOOM)\\b"
+          "name": "storage.type.fsm.action.efpss",
+          "match": "\\b(NONE|READY|SOUND|SOUNDANDATTACK|ATTACK|PLAYERSPEED|PARTICLES|CUSTOMPARTICLE|PLAYERDISTANCE|PLAYERVISIBLE|SETVAR|MODELTEXTURE|SPAWN|HUDIMG|CAMSPEED|CHECKPOS|SETYAW|ADDYAW|ROTMODE|HEAL|HURT|SETHP|EXPLOSION|PROJECTILE|INCREMENT|DECREMENT|MULTIPLY|DIVIDE|MODULO|CLAMP|JUMPIFEQUALS|JUMPIFNEQUALS|JUMPIFGEQUALS|JUMPIFLEQUALS|JUMPIFGREATER|JUMPIFLESS|JUMPIFHPLESS|JUMPIFLESSAMMO|JUMPIFNOAMMO|JUMPIFNOAMMOTOTAL|GIVEAMMO|TAKEAMMO|SETAMMO|RELOAD|MUZZLEFLASH|SETSTAT|ZOOM)\\b"
         }
       ]
     },
@@ -117,15 +125,15 @@
       "patterns": [
         {
           "name": "keyword.operator.comparison.efpss",
-          "match": "(==|!=|<|>|<=|>=)"
+          "match": "(==|!=|<=|>=|<|>)"
         },
         {
           "name": "keyword.operator.arithmetic.efpss",
-          "match": "(\\+|-|\\*|/|%)"
+          "match": "(\\+\\+|--|\\+=|-=|\\*=|/=|\\+|-|\\*|/|%)"
         },
         {
           "name": "keyword.operator.assignment.efpss",
-          "match": "(=|\\+=|-=|\\*=|/=)"
+          "match": "="
         }
       ]
     },

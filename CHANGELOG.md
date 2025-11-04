@@ -12,6 +12,16 @@ All notable changes to the "easy-fps-editor-language-support" extension will be 
 ### Added
 - FSM-specific code snippets: `state`, `frame`, `frameset`, `image`, `sound`
 - Better keyword highlighting for FSM commands (image, sound, state, frame, frameset)
+- Improved TextMate scopes for better theme colorization:
+  - Separate scopes for `$global.*` and `$map.*` variables
+  - Different scopes for procedure definitions vs calls
+  - Distinct scopes for FSM actions and states
+  - Commands now use `support.function.builtin` for consistent coloring
+- Documentation for customizing colors in settings.json
+
+### Changed
+- Improved operator precedence in syntax highlighting (++, --, +=, etc.)
+- Better variable pattern matching with clearer scope hierarchy
 
 ## [0.0.2] - 2025-11-04
 

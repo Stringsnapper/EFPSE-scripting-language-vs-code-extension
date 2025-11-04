@@ -111,6 +111,78 @@ ln -s /path/to/EasyFPSEditor_CE/VSCodeExtension ~/.vscode/extensions/easy-fps-ed
 
 Press **F5** to open a new Extension Development Host window where you can test the extension with your Easy FPS Editor script files.
 
+## Customizing Colors
+
+The extension uses TextMate scopes that your VS Code theme will colorize automatically. Different elements use specific scopes:
+
+- **Commands** (`player`, `entity`, `door`, etc.) → `support.function.builtin`
+- **Keywords** (`procedure`, `if`, `else`, `end`) → `keyword.control`
+- **Functions** (`RANDOM`, `SQRT`, etc.) → `support.function`
+- **Procedure Definitions** → `entity.name.function.definition`
+- **Procedure Calls** → `entity.name.function.call`
+- **Global Variables** (`$global.*`) → `variable.language.global`
+- **Map Variables** (`$map.*`) → `variable.language.map`
+- **Other Variables** (`$variable`) → `variable.other.dollar`
+- **Local Variables** → `variable.other.local`
+- **FSM Actions** (`NONE`, `READY`, `ATTACK`) → `storage.type.fsm.action`
+- **FSM States** (`IDLE`, `DEATH`, `CHASE`) → `constant.language.state`
+- **Strings** → `string.quoted.double`
+- **Numbers** → `constant.numeric`
+- **Comments** → `comment.line.double-slash`
+
+### Custom Theme Colors
+
+You can customize colors in your VS Code `settings.json`:
+
+```json
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "support.function.builtin.efpss",
+        "settings": {
+          "foreground": "#4EC9B0",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "variable.language.global.efpss",
+        "settings": {
+          "foreground": "#9CDCFE"
+        }
+      },
+      {
+        "scope": "variable.language.map.efpss",
+        "settings": {
+          "foreground": "#C586C0"
+        }
+      },
+      {
+        "scope": "entity.name.function.definition.efpss",
+        "settings": {
+          "foreground": "#DCDCAA",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "storage.type.fsm.action.efpss",
+        "settings": {
+          "foreground": "#569CD6",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "constant.language.state.efpss",
+        "settings": {
+          "foreground": "#4FC1FF",
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Requirements
 
 - VS Code 1.105.0 or higher
