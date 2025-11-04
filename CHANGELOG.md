@@ -2,6 +2,17 @@
 
 All notable changes to the "easy-fps-editor-language-support" extension will be documented in this file.
 
+## [0.0.3] - 2025-11-04
+
+### Fixed
+- **Critical**: Added support for `.states` file extension (the actual FSM file extension used by EFPSE)
+- Fixed syntax highlighting not working in FSM files
+- FSM files now properly detected for context-aware IntelliSense
+
+### Added
+- FSM-specific code snippets: `state`, `frame`, `frameset`, `image`, `sound`
+- Better keyword highlighting for FSM commands (image, sound, state, frame, frameset)
+
 ## [0.0.2] - 2025-11-04
 
 ### Added

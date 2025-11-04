@@ -50,6 +50,10 @@
         {
           "name": "keyword.control.efpss",
           "match": "\\b(if|else|end|procedure|call|return)\\b"
+        },
+        {
+          "name": "keyword.control.fsm.efpss",
+          "match": "\\b(image|sound|state|frame|frameset)\\b"
         }
       ]
     },

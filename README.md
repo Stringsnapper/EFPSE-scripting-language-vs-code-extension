@@ -18,7 +18,8 @@ Comprehensive language support extension for Easy FPS Editor script files (.scri
 ## Supported File Types
 
 - `.script` - Script files for game logic, cutscenes, triggers, and terminals
-- `.state` - FSM (Finite State Machine) files for weapons, enemies, and decorations
+- `.state` - FSM (Finite State Machine) files (alternative extension)
+- `.states` - FSM (Finite State Machine) files for weapons, enemies, and decorations
 
 ## Language Features
 

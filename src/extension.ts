@@ -81,8 +81,8 @@ export function activate(context: vscode.ExtensionContext) {
 				const linePrefix = document.lineAt(position).text.substr(0, position.character);
 				const completions: vscode.CompletionItem[] = [];
 				
-				// Determine if we're in a .state file or .script file
-				const isStateFile = document.fileName.endsWith('.state');
+				// Determine if we're in a .states/.state file or .script file
+				const isStateFile = document.fileName.endsWith('.state') || document.fileName.endsWith('.states');
 
 				// Command completions
 				const commands = isStateFile ? FSM_COMMANDS : SCRIPT_COMMANDS;
@@ -138,6 +138,49 @@ export function activate(context: vscode.ExtensionContext) {
 					completions.push(ifItem);
 				}
 
+				// FSM-specific snippets
+				if (isStateFile) {
+					// State snippet
+					if (linePrefix.match(/^\s*sta/)) {
+						const stateItem = new vscode.CompletionItem('state', vscode.CompletionItemKind.Snippet);
+						stateItem.insertText = new vscode.SnippetString('state ${1:IDLE} ${2:NONE} ${3:0}\nframe ${4:0} ${5:0.025} 0 0 0 NONE\n$0');
+						stateItem.documentation = 'Create a new FSM state';
+						completions.push(stateItem);
+					}
+
+					// Frame snippet
+					if (linePrefix.match(/^\s*fra/)) {
+						const frameItem = new vscode.CompletionItem('frame', vscode.CompletionItemKind.Snippet);
+						frameItem.insertText = new vscode.SnippetString('frame ${1:0} ${2:0.025} ${3:0} ${4:0} ${5:0} ${6:NONE}');
+						frameItem.documentation = 'Create a new frame';
+						completions.push(frameItem);
+					}
+
+					// Frameset snippet
+					if (linePrefix.match(/^\s*frame/)) {
+						const framesetItem = new vscode.CompletionItem('frameset', vscode.CompletionItemKind.Snippet);
+						framesetItem.insertText = new vscode.SnippetString('frameset ${1:0} ${2:10} ${3:0.025} ${4:0} ${5:0} ${6:0} ${7:NONE}');
+						framesetItem.documentation = 'Create a frameset range';
+						completions.push(framesetItem);
+					}
+
+					// Image load snippet
+					if (linePrefix.match(/^\s*im/)) {
+						const imageItem = new vscode.CompletionItem('image', vscode.CompletionItemKind.Snippet);
+						imageItem.insertText = new vscode.SnippetString('image ${1:SpriteName} ${2:0} ${3:10}');
+						imageItem.documentation = 'Load sprite images';
+						completions.push(imageItem);
+					}
+
+					// Sound load snippet
+					if (linePrefix.match(/^\s*so/)) {
+						const soundItem = new vscode.CompletionItem('sound', vscode.CompletionItemKind.Snippet);
+						soundItem.insertText = new vscode.SnippetString('sound ${1:SoundName}');
+						soundItem.documentation = 'Load a sound';
+						completions.push(soundItem);
+					}
+				}
+
 				return completions;
 			}
 		}
@@ -177,7 +220,7 @@ function updateDiagnostics(document: vscode.TextDocument, collection: vscode.Dia
 	const diagnostics: vscode.Diagnostic[] = [];
 	const text = document.getText();
 	const lines = text.split('\n');
-	const isStateFile = document.fileName.endsWith('.state');
+	const isStateFile = document.fileName.endsWith('.state') || document.fileName.endsWith('.states');
 
 	if (isStateFile) {
 		// FSM-specific linting

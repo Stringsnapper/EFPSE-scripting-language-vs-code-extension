@@ -2,7 +2,7 @@
   "name": "easy-fps-editor-language-support",
   "displayName": "Easy FPS Editor Language Support",
   "description": "Language support for Easy FPS Editor script files with syntax highlighting, IntelliSense, and linting",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.105.0"
   },
@@ -18,7 +18,7 @@
       {
         "id": "efpss",
         "aliases": ["Easy FPS Editor Script", "efpss"],
-        "extensions": [".script", ".state"],
+        "extensions": [".script", ".state", ".states"],
         "configuration": "./language-configuration.json"
       }
     ],

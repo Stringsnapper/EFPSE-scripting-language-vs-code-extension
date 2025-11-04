@@ -1,17 +1,18 @@
 # VS Code Extension for Easy FPS Editor
 
 ## Project Overview
-This is a VS Code extension that provides language support for Easy FPS Editor scripting language (.script and .state files).
+This is a VS Code extension that provides comprehensive language support for Easy FPS Editor scripting language (.script and .states files).
 
 ## Features Implemented
 - ✅ Syntax highlighting for Easy FPS Editor script syntax
 - ✅ IntelliSense with code completion for commands, procedures, and variables
 - ✅ Linting for common syntax errors (duplicate procedures, unclosed procedures, variable naming)
-- ✅ Support for .script and .state file extensions
+- ✅ Support for .script, .state, and .states file extensions
 - ✅ Code snippets for procedures and control structures
-- ✅ Context-aware completions for .script vs .state files
+- ✅ Context-aware completions for .script vs .states files
 - ✅ FSM-specific linting (whitespace detection, frame delays, best practices)
 - ✅ Complete command set from official documentation
+- ✅ FSM-specific snippets (state, frame, frameset, image, sound)
 
 ## Language Syntax Rules
 
