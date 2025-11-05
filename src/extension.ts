@@ -292,15 +292,6 @@ function lintScriptFile(lines: string[], diagnostics: vscode.Diagnostic[]): void
 			}
 		}
 
-		// Check for whitespace at the beginning (FSM best practice)
-		if (line.length > 0 && line[0] === ' ' || line[0] === '\t') {
-			const diagnostic = new vscode.Diagnostic(
-				new vscode.Range(i, 0, i, 1),
-				'Leading whitespace detected. This may cause parsing issues in Easy FPS Editor.',
-				vscode.DiagnosticSeverity.Warning
-			);
-			diagnostics.push(diagnostic);
-		}
 	}
 
 	// Check for unclosed procedures
